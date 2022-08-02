@@ -5,7 +5,7 @@ using UI = UnityEngine.UI;
 namespace MediaPipe.FaceMesh
 {
 
-    public sealed class Visualizer : MonoBehaviour
+    public class Visualizer : MonoBehaviour
     {
         #region Editable attributes
 
@@ -51,6 +51,8 @@ namespace MediaPipe.FaceMesh
             // Processing on the face pipeline
             _pipeline.ProcessImage(_webcam.Texture);
 
+            Debug.Log(_pipeline.RefinedFaceVertexBuffer.GetBoundingBoxData().Center);
+
             facepos = new Vector3(_pipeline.RefinedFaceVertexBuffer.GetBoundingBoxData().Center.x,
                _pipeline.RefinedFaceVertexBuffer.GetBoundingBoxData().Center.y,
                0);
@@ -71,7 +73,7 @@ namespace MediaPipe.FaceMesh
             Vector3 zero = Vector3.zero;
 
             te.localEulerAngles = new Vector3(0, te.localEulerAngles.y, 0);
-            Debug.Log(facepos);
+            //Debug.Log(facepos);
             //te.localEulerAngles = Vector3.SmoothDamp(new Vector3(0, te.localEulerAngles.y, 0),  new Vector3(0, te.localEulerAngles.y, 0), ref zero, smoothTime);
 
             // UI update

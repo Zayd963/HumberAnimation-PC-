@@ -72,7 +72,7 @@ public class ModelManager : MonoBehaviour
             timer = 0;
         }
 
-        Debug.Log(currentModelIndex);
+        
     }
 
     private IEnumerator ChangeModel()
